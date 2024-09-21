@@ -23,34 +23,15 @@ if($_SERVER["REQUEST_METHOD"] === "GET"){
 
         switch($_GET["type"]){
             case "json":
-                result_json($resultado)
-            break;
+                result_json($resultadoss);
+                    break;
             case "xml":
-                result_xml($resultado)
-            break;
+                result_xml($resultados);
+                    break;
             default:
             echo("Por favor, defina el tipo de resultado");
             break;
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }else{
         $arreglo = array(
@@ -71,13 +52,11 @@ if($_SERVER["REQUEST_METHOD"] === "GET"){
     );
 }
 
-
-
-public function_json($resultado){
+function result_json($resultado){
     $arreglo = array(
         "success"=>true,
         "status"=>array("status_code"=>200,"status_text"=> "OK"),
-        "data"=>$resultado
+        "data"=>$resultado,
         "message"=>"",
         "cant"=> sizeof($resultado)
     );
